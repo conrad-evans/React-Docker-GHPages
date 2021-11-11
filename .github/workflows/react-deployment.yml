@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Build and test
-      run: |
-        docker build --tag conradmugabe/react_docker_ghpages:latest client/
+        run: |
+          docker build --tag conradmugabe/react_docker_ghpages:latest client/
