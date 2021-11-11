@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - master
+    paths:
+      - client/**
+      - .dockerignore
+      - .gitignore
+      - .github/workflows/react-deployment.yml
+
 
 jobs:
   test:
@@ -15,4 +21,4 @@ jobs:
 
       - name: Build and test
         run: |
-          docker build --tag conradmugabe/react_docker_ghpages:latest client/
+          docker build --tag conradmugabe/react_docker_ghpages:latest .
