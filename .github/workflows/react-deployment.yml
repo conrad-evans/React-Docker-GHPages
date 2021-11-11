@@ -1,0 +1,17 @@
+name: Containerized React Deployment to Gh-Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      uses: actions/checkout@v2
+
+      - name: Build and test
+      run: |
+        docker build --tag conradmugabe/react_docker_ghpages:latest client/

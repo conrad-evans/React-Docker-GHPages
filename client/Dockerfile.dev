@@ -1,0 +1,14 @@
+FROM node:14.17.0-alpine as base
+
+WORKDIR /app
+
+COPY ./package*.json .
+COPY ./yarn.lock .
+
+RUN  yarn install
+COPY . .
+
+ENV CI=true
+RUN yarn test --coverage
+
+CMD [ "yarn", "start" ]
